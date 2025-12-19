@@ -1,0 +1,45 @@
+/* src/components/CardSwap.css */
+.card-swap-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  /* Adjust position to be visible in the section */
+  transform: translate(-10%, -10%); 
+  transform-origin: bottom right;
+  perspective: 1200px; /* Increased perspective for deeper 3D feel */
+  overflow: visible;
+  z-index: 10;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 24px; /* More rounded premium look */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #0a0a0a; /* Dark background */
+  overflow: hidden;
+
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  
+  /* Shadow for depth */
+  box-shadow: -20px 20px 60px rgba(0,0,0,0.8);
+}
+
+@media (max-width: 1024px) {
+  .card-swap-container {
+    left: 50%;
+    right: auto;
+    bottom: 50%;
+    transform: translate(-50%, 50%); /* Center on mobile */
+  }
+}
+
+@media (max-width: 600px) {
+  .card-swap-container {
+    transform: translate(-50%, 50%) scale(0.65);
+  }
+}
